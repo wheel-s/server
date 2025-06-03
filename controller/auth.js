@@ -23,7 +23,7 @@ const register = async (req, res)=>{
     
     const user = await User.create({...tempUser})
     const token = jwt.sign({userID:user._id , name:user.username}, process.env.JWT_SECRET, {expiresIn:process.env.JWT_LIFETIME})
-    res.cookie("token", token).json(tempUser)
+   
     res.status(201).json({user:user.username,userId:user._id, token:token})
    
    
@@ -57,8 +57,8 @@ const login = async (req,res)=>{
     }
 
  
-   
-    res.cookie("token", token).json({user:user.username,userId:user._id, token})
+   res.cookie("token", token).json(tempUser)
+    res.status(200).json({user:user.username,userId:user._id, token})
 
 
 

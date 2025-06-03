@@ -11,11 +11,18 @@ image:{
     
 
 },
-caption:{
+title:{
     type:String,
     trim: true
 },
-
+description:{
+    type:String,
+    trim: true
+},
+link:{
+    type:String,
+    trim: true
+},
 createdBy:{
     type:mongoose.Types.ObjectId,
     ref:'User',
