@@ -23,6 +23,7 @@ const register = async (req, res)=>{
     
     const user = await User.create({...tempUser})
     const token = jwt.sign({userID:user._id , name:user.username}, process.env.JWT_SECRET, {expiresIn:process.env.JWT_LIFETIME})
+    res.cookie("token", token).json(tempUser)
     res.status(201).json({user:user.username,userId:user._id, token:token})
    
    
@@ -56,8 +57,8 @@ const login = async (req,res)=>{
     }
 
  
-
-    res.status(200).json({user:user.username,userId:user._id, token})
+   
+    res.cookie("token", token).json({user:user.username,userId:user._id, token})
 
 
 
@@ -66,7 +67,14 @@ const login = async (req,res)=>{
  }
 
     
-
+const logOut = async(req,res)=>{
+    try{
+   res.cookie("token", "").json("user loggedout successfully")
+    }
+    catch(err){
+            console.log(err)
+    }
+}
 
  const getUser= async(req, res)=>{
     try{
@@ -131,4 +139,5 @@ module.exports = {
     getUser,
     updateUser,
     deleteUser,
+    logOut
 }

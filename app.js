@@ -10,6 +10,7 @@ const express = require('express')
 const app = express()
 const user = require('./routes/users')
 const info  = require('./routes/info')
+const comment = require('./routes/comment')
 const connectDB = require('./db/connect')
 
 const notFound = require('./MiddleWare/not-found')
@@ -20,7 +21,7 @@ app.use(rateLimit({
     windowMs:15 * 60 *1000,
     max:9000
 }))
-app.use(cors())
+app.use(cors({origin:"*"}))
 
 app.use(helmet())
 
@@ -30,24 +31,25 @@ app.use(express.json())
 
 
 app.get('/',  (req, res)=>{
-    res.send('Task App')
+    res.json('Task App')
 })
 
 app.use('/api/user', user)
 app.use('/api/info', info)
+app.use('/api/comment', comment)
 
 app.use(notFound)
 app.use(errorMiddleware)
 
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 5000
 
 const start = async  ()=>{
     try{
    
         await connectDB(process.env.MONGO_URI)
 
-        app.listen(5000, 'localhost')
+        app.listen(port)
         console.log(`Server is listening on port ${port}`)
     }
     catch(err){
