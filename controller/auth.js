@@ -57,7 +57,7 @@ const login = async (req,res)=>{
     }
 
  
-   res.cookie("token", token).json(tempUser)
+   
     res.status(200).json({user:user.username,userId:user._id, token})
 
 
