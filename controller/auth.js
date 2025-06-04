@@ -123,7 +123,7 @@ const deleteUser = async(req,res)=>{
         }
 
         
-        res.status(200).send('deleted user')
+        res.status(200).json('deleted user')
     }
     catch(error){
         res.status(500).json({error})
