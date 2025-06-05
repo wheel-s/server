@@ -10,8 +10,8 @@ const getAllFav = async (req,res)=>{
 const createFav= async (req, res)=>{
     try{
         
-    const info = await Fav.create(req.body)
-     res.status(201).json({info})
+    const fav = await Fav.create(req.body)
+     res.status(201).json({fav})
     }
      catch(error){
        
@@ -57,12 +57,12 @@ const deleteFav = async(req,res)=>{
     const  {user:{userId},params:{id:infoId}} = req
     
 
-    const info = await Info.findOneAndDelete({
+    const info = await Fav.findOneAndDelete({
         _id:infoId, createdBy:userId
         
     })
     if(!info){
-        throw new BadRequestError( `no info with id ${infoId}`)
+        throw new BadRequestError( `no favourites with id ${infoId}`)
     }
     
     res.status(200).json(' sucessfully deleted ')
