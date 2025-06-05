@@ -24,7 +24,7 @@ const getInfo = async (req,res)=>{
     const {user:{userId}, params:{id:infoId}} = req
 
     const info = await Info.findOne({
-        _id:infoId,createdBy:userId
+        _id:infoId
     })
     
     if(!info){
