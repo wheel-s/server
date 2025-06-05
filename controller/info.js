@@ -21,7 +21,7 @@ const createInfo= async (req, res)=>{
 }
 
 const getInfo = async (req,res)=>{
-    const {user:{userId}, params:{id:infoId}} = req
+    const { params:{id:infoId}} = req
 
     const info = await Info.findOne({
         _id:infoId
