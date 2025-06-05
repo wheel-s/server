@@ -8,6 +8,6 @@ const { getAllComment,createComment ,getComment, updateComment,deleteComment} = 
 
 router.route('/').get(getAllComment)
 router.route('/').post( createComment)
-router.route('/:id').get(auth,  getComment).patch(auth ,updateComment).delete(auth,deleteComment)
+router.route('/:id').get(  getComment).patch(auth,updateComment).delete(auth,deleteComment)
 
 module.exports = router
