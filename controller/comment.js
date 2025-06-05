@@ -23,7 +23,7 @@ const createComment= async (req, res)=>{
 const getComment= async (req,res)=>{
     const  {id:by} = req.params
 
-    const comment = await Comment.findOne({
+    const comment = await Comment.find({
         createdBy:by
     })
     
