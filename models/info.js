@@ -15,13 +15,16 @@ title:{
     type:String,
     trim: true
 },
-description:{
-    type:String,
-    trim: true
-},
 link:{
     type:String,
     trim: true
+},
+user:{
+    type:String,
+
+},
+userImg:{
+    type:String,
 },
 createdBy:{
     type:mongoose.Types.ObjectId,

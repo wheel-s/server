@@ -10,7 +10,7 @@ comment:{
     
 
 },
-caption:{
+user:{
     type:String,
     trim: true
 },

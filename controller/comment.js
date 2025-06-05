@@ -24,7 +24,7 @@ const getComment= async (req,res)=>{
     const {body:{userId}, params:{id:commentId}} = req
 
     const comment = await Comment.findOne({
-        _id:commentId,createdBy:userId
+        createdBy:userId
     })
     
     if(!comment){
