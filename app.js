@@ -11,6 +11,7 @@ const app = express()
 const user = require('./routes/users')
 const info  = require('./routes/info')
 const comment = require('./routes/comment')
+const fav = require('./routes/favourite')
 const connectDB = require('./db/connect')
 
 const notFound = require('./MiddleWare/not-found')
@@ -19,7 +20,7 @@ const errorMiddleware = require('./MiddleWare/error-handler')
 app.set('trust proxy', 1)
 app.use(rateLimit({
     windowMs:15 * 60 *1000,
-    max:9000
+    max:10000
 }))
 app.use(cors({origin:"*"}))
 
@@ -37,7 +38,7 @@ app.get('/',  (req, res)=>{
 app.use('/api/user', user)
 app.use('/api/info', info)
 app.use('/api/comment', comment)
-
+app.use('/api/comment', fav)
 app.use(notFound)
 app.use(errorMiddleware)
 
