@@ -8,6 +8,6 @@ const { getAllInfo,createInfo ,getInfo, updateInfo,deleteInfo} = require('../con
 
 router.route('/').get(getAllInfo)
 router.route('/').post(auth, createInfo)
-router.route('/:id').get(auth,  getInfo).patch(auth ,updateInfo).delete(auth,deleteInfo)
+router.route('/:id').get(  getInfo).patch(auth ,updateInfo).delete(auth,deleteInfo)
 
 module.exports = router
