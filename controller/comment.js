@@ -21,10 +21,10 @@ const createComment= async (req, res)=>{
 }
 
 const getComment= async (req,res)=>{
-    const {body:{userId}, params:{id:commentId}} = req
+    const { params:{id:commentId}} = req
 
     const comment = await Comment.findOne({
-        createdBy:userId
+        createdBy:commentId
     })
     
     if(!comment){
