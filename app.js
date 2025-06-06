@@ -38,7 +38,7 @@ app.get('/',  (req, res)=>{
 app.use('/api/user', user)
 app.use('/api/info', info)
 app.use('/api/comment', comment)
-app.use('/api/comment', fav)
+app.use('/api/favourite', fav)
 app.use(notFound)
 app.use(errorMiddleware)
 
