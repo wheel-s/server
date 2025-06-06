@@ -6,7 +6,8 @@ const { getAllInfo,createInfo ,getInfo, updateInfo,deleteInfo, getCreated} = req
 
 
 
-router.route('/').get(getAllInfo, getCreated)
+router.route('/').get(getAllInfo)
+router.route('/create').get(getCreated)
 router.route('/').post(auth, createInfo)
 router.route('/:id').get(  getInfo).patch(auth ,updateInfo).delete(auth,deleteInfo)
 
