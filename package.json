@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "mongoDb",
   "main": "app.js",
- 
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "start": "node app.js"
   },
