@@ -35,6 +35,19 @@ const getInfo = async (req,res)=>{
 
 
 
+const getCreated = async (req,res)=>{
+    const { user:{id:infoId}} = req
+
+    const info = await Info.find({
+        _id:infoId
+    })
+    
+    if(!info){
+        throw new BadRequestError( `no info with id ${infoId}`)
+    }
+    res.status(200).send(info)
+}
+
 const updateInfo= async(req, res)=>{
     
     const {user:{userId}, params:{id:infoId}} = req
@@ -80,4 +93,5 @@ module.exports = {
     getInfo,
     updateInfo,
     deleteInfo,
+    getCreated
 }

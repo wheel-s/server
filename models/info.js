@@ -15,7 +15,11 @@ title:{
     type:String,
     trim: true
 },
-link:{
+description:{
+    type:String,
+    trim: true
+},
+links:{
     type:String,
     trim: true
 },
