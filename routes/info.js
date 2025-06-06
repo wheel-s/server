@@ -2,7 +2,7 @@ const express = require('express')
 const router =  express.Router()
 
 const auth = require('../MiddleWare/authentication')
-const { getAllInfo,createInfo ,getInfo, updateInfo,deleteInfo} = require('../controller/Favoutite')
+const { getAllInfo,createInfo ,getInfo, updateInfo,deleteInfo} = require('../controller/info')
 
 
 
