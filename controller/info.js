@@ -39,7 +39,7 @@ const getCreated = async (req,res)=>{
     const { params:{id:infoId}} = req
 
     const info = await Info.find({
-        _id:infoId
+        createdBy:infoId
     })
     
     if(!info){
