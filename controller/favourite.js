@@ -4,7 +4,7 @@ const BadRequestError = require('../MiddleWare/badRequest')
 
 const getAllFav = async (req,res)=>{
     const {params:{user}} = req
-    const infos  = await Fav.find({}).sort('createdAt')
+    const infos  = await Fav.find({user:user}).sort('createdAt')
     res.status(200).json(infos)
 }
 
