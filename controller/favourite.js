@@ -3,8 +3,8 @@ const Fav = require('../models/favourites')
 const BadRequestError = require('../MiddleWare/badRequest')
 
 const getAllFav = async (req,res)=>{
-    const {params:{userId}} = req
-    const infos  = await Fav.find({userId}).sort('createdAt')
+    const {params:{user}} = req
+    const infos  = await Fav.find({user}).sort('createdAt')
     res.status(200).json(infos)
 }
 
