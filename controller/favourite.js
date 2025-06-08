@@ -3,8 +3,8 @@ const Fav = require('../models/favourites')
 const BadRequestError = require('../MiddleWare/badRequest')
 
 const getAllFav = async (req,res)=>{
-    const {user:{user}} = req
-    const infos  = await Fav.find({user:user}).sort('createdAt')
+    const {user:{name}} = req
+    const infos  = await Fav.find({user:name}).sort('createdAt')
     res.status(200).json(infos)
 }
 
@@ -55,11 +55,11 @@ const deleteFav = async(req,res)=>{
    
    try{ 
     
-     const  {user:{user},params:{id:infoId}} = req
+     const  {user:{name},params:{id:infoId}} = req
     
 
     const info = await Fav.findOneAndDelete({
-        _id:infoId, user:user
+        _id:infoId, user:name
         
     })
     if(!info){
