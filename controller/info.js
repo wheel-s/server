@@ -36,10 +36,10 @@ const getInfo = async (req,res)=>{
 
 
 const getCreated = async (req,res)=>{
-    const { params:{id:infoId}} = req
+    const { user:{userId}} = req
 
     const info = await Info.find({
-        createdBy:infoId
+        createdBy:userId
     })
     
     if(!info){
