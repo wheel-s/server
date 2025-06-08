@@ -36,16 +36,13 @@ const getInfo = async (req,res)=>{
 
 
 const getCreated = async (req,res)=>{
-    const { user:{userId}} = req
-
-    const info = await Info.find({
-        createdBy:userId
-    })
-    
-    if(!info){
-        throw new BadRequestError( `no info with id ${infoId}`)
-    }
-    res.status(200).send(info)
+     const {user:{userId}} = req
+     const infos  = await Info.find({user:userId})
+     
+        if(!infos){
+    throw new BadRequestError( `no info with id ${infoId}`)
+        }
+     res.status(200).json(infos)
 }
 
 const updateInfo= async(req, res)=>{
