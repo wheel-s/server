@@ -40,7 +40,7 @@ const getCreated = async (req,res)=>{
      const infos  = await Info.find({user:userId})
      
         if(!infos){
-    throw new BadRequestError( `no info with id ${infoId}`)
+    throw new BadRequestError( `no info with id ${userId}`)
         }
      res.status(200).json(infos)
 }
