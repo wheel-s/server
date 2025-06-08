@@ -14,7 +14,7 @@ image:{
 
 user:{
     type:mongoose.Types.ObjectId,
-    ref:'User',
+   
     required:[true, 'please provide user'],
     
 }
