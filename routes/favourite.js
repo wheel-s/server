@@ -6,7 +6,7 @@ const { getAllFav,createFav ,getFav, updateFav,deleteFav} = require('../controll
 
 
 
-router.route('/').get(auth,getAllFav)
+router.route('/all/:id').get(auth,getAllFav)
 router.route('/').post(auth, createFav)
 router.route('/:id').get( getFav).patch(auth ,updateFav).delete(auth,deleteFav)
 
