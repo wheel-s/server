@@ -37,7 +37,7 @@ const getInfo = async (req,res)=>{
 
 const getCreated = async (req,res)=>{
      const {user:{userId}} = req
-     const infos  = await Info.find({user:userId})
+     const infos  = await Info.find({createdBy:userId})
      
         if(!infos){
     throw new BadRequestError( `no info with id ${userId}`)
@@ -83,6 +83,29 @@ catch(error){
     console.log(error)
 }
 }
+const deleteAllInfo = async(req,res)=>{
+   
+   try{ 
+    
+    const  {user:{userId}} = req
+    
+
+    const info = await Info.findByIdAndDelete({
+        createdBy:userId
+        
+    })
+    if(!info){
+        throw new BadRequestError( `no info with id ${userId}`)
+    }
+    
+    res.status(200).json(' sucessfully deleted ')
+}
+catch(error){
+    res.status(500).json({error})
+    console.log(error)
+}
+}
+
 
 module.exports = {
     getAllInfo,
@@ -90,5 +113,6 @@ module.exports = {
     getInfo,
     updateInfo,
     deleteInfo,
-    getCreated
+    getCreated,
+    deleteAllInfo
 }
