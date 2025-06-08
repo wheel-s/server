@@ -55,11 +55,11 @@ const deleteFav = async(req,res)=>{
    
    try{ 
     
-    const  {params:{id:infoId}} = req
+     const  {user:{userId},params:{id:infoId}} = req
     
 
     const info = await Fav.findOneAndDelete({
-        _id:infoId
+        _id:infoId, createdBy:userId
         
     })
     if(!info){
