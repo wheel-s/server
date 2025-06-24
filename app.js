@@ -5,7 +5,7 @@ const helmet = require('helmet')
 const cors = require('cors')
 const xss = require('xss-clean')
 const rateLimit = require('express-rate-limit')
-
+const bodyParser =reuire('body-parser')
 const express = require('express')
 const app = express()
 const user = require('./routes/users')
@@ -35,6 +35,7 @@ app.get('/',  (req, res)=>{
     res.json('Task App')
 })
 
+app.use(bodyParser.raw({type:'image/*',limit:'5mb'}))
 app.use('/api/user', user)
 app.use('/api/info', info)
 app.use('/api/comment', comment)
