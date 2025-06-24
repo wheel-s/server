@@ -17,7 +17,7 @@ const createInfo= async (req, res)=>{
     }
    
     req.body.createdBy=req.user.createdBy
-    const info = await newInfo.create(req.body)
+    const info = await Info.create(req.body)
      res.status(201).json({info})
     }
      catch(error){
