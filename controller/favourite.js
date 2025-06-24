@@ -10,9 +10,7 @@ const getAllFav = async (req,res)=>{
 
 const createFav= async (req, res)=>{
     try{
-    if(!req.body ||  req.body.length === 0){
-        return res.status(400).json('No image data received')
-    }
+  
     const fav = await Fav.create(req.body)
      res.status(201).json({fav})
     }
