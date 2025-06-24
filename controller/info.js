@@ -1,10 +1,12 @@
 
+const multer = require('multer')
 const Info = require('../models/info')
 const BadRequestError = require('../MiddleWare/badRequest')
 
+
 const getAllInfo = async (req,res)=>{
     const infos  = await Info.find({}).sort('createdAt')
-    res.status(200).json(infos)
+    res.status(200).json(infos.toString())
 }
 
 const createInfo= async (req, res)=>{
@@ -13,8 +15,9 @@ const createInfo= async (req, res)=>{
     if(!req.body ||  req.body.length === 0){
         return res.status(400).json('No image data received')
     }
-    req.body.createdBy=req.user.userId
-    const info = await Info.create(req.body)
+   
+    req.body.createdBy=req.user.createdBy
+    const info = await newInfo.create(req.body)
      res.status(201).json({info})
     }
      catch(error){

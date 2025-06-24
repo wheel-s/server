@@ -29,7 +29,8 @@ app.use(helmet())
 
 app.use(express.json())
 
-
+express.json({limit:'10mb'})
+express.urlencoded({limit:'10mb'})
 
 app.get('/',  (req, res)=>{
     res.json('Task App')

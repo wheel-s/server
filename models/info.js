@@ -5,12 +5,11 @@ const mongoose = require('mongoose')
 const InfoSchema = new mongoose.Schema({
 
 image:{
-    type:Buffer,
-    
+    type:string,    
     trim:true,
-    
 
 },
+
 title:{
     type:String,
     trim: true
