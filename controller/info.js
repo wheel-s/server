@@ -10,7 +10,10 @@ const getAllInfo = async (req,res)=>{
 const createInfo= async (req, res)=>{
     try{
         
-        req.body.createdBy=req.user.userId
+    if(!req.body ||  req.body.length === 0){
+        return res.status(400).json('No image data received')
+    }
+    req.body.createdBy=req.user.userId
     const info = await Info.create(req.body)
      res.status(201).json({info})
     }
