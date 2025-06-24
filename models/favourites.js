@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const FavouriteSchema = new mongoose.Schema({
 
 image:{
-    type:string,
+    type:String,
     trim:true,
     
 
