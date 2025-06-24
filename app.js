@@ -35,7 +35,7 @@ app.get('/',  (req, res)=>{
     res.json('Task App')
 })
 
-app.use(bodyParser.raw({type:'image/*',limit:'5mb'}))
+
 app.use('/api/user', user)
 app.use('/api/info', info)
 app.use('/api/comment', comment)
