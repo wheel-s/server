@@ -13,7 +13,7 @@ const createInfo= async (req, res)=>{
     try{
 
    
-    req.body.createdBy=req.user.createdBy
+    req.body.createdBy=req.user.userId
     const info = await Info.create(req.body)
      res.status(201).json({info})
     }
