@@ -6,7 +6,7 @@ const BadRequestError = require('../MiddleWare/badRequest')
 
 const getAllInfo = async (req,res)=>{
     const infos  = await Info.find({}).sort('createdAt')
-    res.status(200).json(infos.toString())
+    res.status(200).json(infos)
 }
 
 const createInfo= async (req, res)=>{
